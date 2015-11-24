@@ -1,3 +1,5 @@
+This version of the code has limit or no documentation at present. I will be updating it as time permits.
+
 ----------------------------------------
 ---- How to run the BBF CharGen program.
 ----------------------------------------
