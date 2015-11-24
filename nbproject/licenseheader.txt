@@ -1,0 +1,15 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Licensing
+${licensePrefix}This software is licensed under the Creative Commons Attribution-Noncommercial-ShareAlike 3.0 Unported License; (CC BY-NC-SA 3.0); Some Rights Reserved.
+${licensePrefix}BareBones Fantasy™ and Keranak Kingdoms™ are copyright 2012, and are trademarks of DwD Studios. 
+${licensePrefix}These trademarks are used under the Creative Commons Attribution-Noncommercial-ShareAlike 3.0 Unported License; (CC BY-NC-SA 3.0); Some Rights Reserved.
+${licensePrefix}To view a copy of this license, visit: http://creativecommons.org/licenses/by-nc-sa/3.0
+${licensePrefix}All data is (CC BY-NC-SA 3.0) and used with permission.
+${licensePrefix}Basic game setup, races, and Decahedron Descriptors are from DwDStudios http://dwdstudios.com/ (They also make Covert Ops)
+${licensePrefix}Available 1000 Descriptors by Mark Hassman http://mithrilandmages.com (check out his cool NPC/character generators)
+<#if licenseLast??>
+${licenseLast}
+</#if>
+ 

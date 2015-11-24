@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*
+* Licensing
+* This software is licensed under the Creative Commons Attribution-Noncommercial-ShareAlike 3.0 Unported License; (CC BY-NC-SA 3.0); Some Rights Reserved.
+* BareBones Fantasy™ and Keranak Kingdoms™ are copyright 2012, and are trademarks of DwD Studios. 
+* These trademarks are used under the Creative Commons Attribution-Noncommercial-ShareAlike 3.0 Unported License; (CC BY-NC-SA 3.0); Some Rights Reserved.
+* To view a copy of this license, visit: http://creativecommons.org/licenses/by-nc-sa/3.0
+* All data is (CC BY-NC-SA 3.0) and used with permission.
+* Basic game setup, races, and Decahedron Descriptors are from DwDStudios http://dwdstudios.com/ (They also make Covert Ops)
+* Available 1000 Descriptors by Mark Hassman http://mithrilandmages.com (check out his cool NPC/character generators)
+*/
+-->
+<MoralCodeFactory>
+	<MoralCodeDegree>
+		<entry>Somewhat</entry>
+		<entry>Very</entry>
+		<entry>Totally</entry>
+	</MoralCodeDegree>
+	<MoralCodeA>
+		<entry>Kind</entry>
+		<entry>Cruel</entry>
+	</MoralCodeA>
+	<MoralCodeB>
+		<entry>Focused</entry>
+		<entry>Unfocused</entry>
+	</MoralCodeB>
+	<MoralCodeC>
+		<entry>Selfless</entry>
+		<entry>Selfish</entry>
+	</MoralCodeC>
+	<MoralCodeD>
+		<entry>Honorable</entry>
+		<entry>Deceitful</entry>
+	</MoralCodeD>
+	<MoralCodeE>
+		<entry>Brave</entry>
+		<entry>Cowardly</entry>
+	</MoralCodeE>
+</MoralCodeFactory>

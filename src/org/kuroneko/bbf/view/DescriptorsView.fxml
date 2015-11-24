@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.control.cell.*?>
+
+<!--
+/*
+* Licensing
+* This software is licensed under the Creative Commons Attribution-Noncommercial-ShareAlike 3.0 Unported License; (CC BY-NC-SA 3.0); Some Rights Reserved.
+* BareBones Fantasy™ and Keranak Kingdoms™ are copyright 2012, and are trademarks of DwD Studios. 
+* These trademarks are used under the Creative Commons Attribution-Noncommercial-ShareAlike 3.0 Unported License; (CC BY-NC-SA 3.0); Some Rights Reserved.
+* To view a copy of this license, visit: http://creativecommons.org/licenses/by-nc-sa/3.0
+* All data is (CC BY-NC-SA 3.0) and used with permission.
+* Basic game setup, races, and Decahedron Descriptors are from DwDStudios http://dwdstudios.com/ (They also make Covert Ops)
+* Available 1000 Descriptors by Mark Hassman http://mithrilandmages.com (check out his cool NPC/character generators)
+*/
+-->
+<ScrollPane fitToHeight="true" fitToWidth="true"
+			prefHeight="400" prefWidth="520" 
+		  xmlns:fx="http://javafx.com/fxml/1" 
+		  fx:controller="org.kuroneko.bbf.DescriptorsControl" 
+		  stylesheets="@BBFView.css" 
+>
+	<FlowPane id="BBFDescriptor" hgap="2" vgap="2" styleClass="bbf-base" >
+		<padding><javafx.geometry.Insets top="5" right="5" bottom="5" left="5"/></padding>
+		<children>
+			<VBox prefWidth="500" alignment="TOP_CENTER" styleClass="bbf-border" >
+				<padding><javafx.geometry.Insets top="5" right="5" bottom="5" left="5"/></padding>
+				<Label text="Character Descriptors" styleClass="bbf-header" /> 
+				<GridPane>
+					<Label fx:id="mDescriptorLabel1"	GridPane.rowIndex="0" GridPane.columnIndex="0" text="Descriptor:" /> 
+					<TextArea fx:id="mDescriptorValue1"	prefHeight="30" prefWidth="300" wrapText="true" 
+							GridPane.rowIndex="0" GridPane.columnIndex="1" text="Enter descriptor here." /> 
+					<Button fx:id="mDescriptor1000_1"	GridPane.rowIndex="0" GridPane.columnIndex="2" text="1000"  onAction="#descriptor1000Action1" />
+					<Button fx:id="mDescriptorDeca_1"	GridPane.rowIndex="0" GridPane.columnIndex="3" text="Deca"  onAction="#descriptorDecaAction1" />
+					<Label fx:id="mDescriptorLabel2"	GridPane.rowIndex="1" GridPane.columnIndex="0" text="Descriptor:" /> 
+					<TextArea fx:id="mDescriptorValue2"	prefHeight="30" prefWidth="300" wrapText="true" 
+							GridPane.rowIndex="1" GridPane.columnIndex="1" text="Enter descriptor here." /> 
+					<Button fx:id="mDescriptor1000_2"	GridPane.rowIndex="1" GridPane.columnIndex="2" text="1000"  onAction="#descriptor1000Action2" />
+					<Button fx:id="mDescriptorDeca_2"	GridPane.rowIndex="1" GridPane.columnIndex="3" text="Deca"  onAction="#descriptorDecaAction2" />
+					<Label fx:id="mDescriptorLabel3"	GridPane.rowIndex="2" GridPane.columnIndex="0" text="Descriptor:" /> 
+					<TextArea fx:id="mDescriptorValue3"	prefHeight="30" prefWidth="300" wrapText="true" 
+							GridPane.rowIndex="2" GridPane.columnIndex="1" text="Enter descriptor here." /> 
+					<Button fx:id="mDescriptor1000_3"	GridPane.rowIndex="2" GridPane.columnIndex="2" text="1000"  onAction="#descriptor1000Action3" />
+					<Button fx:id="mDescriptorDeca_3"	GridPane.rowIndex="2" GridPane.columnIndex="3" text="Deca"  onAction="#descriptorDecaAction3" />
+				</GridPane>
+			</VBox>
+			<VBox prefWidth="250" alignment="TOP_CENTER" styleClass="bbf-border" >
+				<padding><javafx.geometry.Insets top="5" right="5" bottom="5" left="5"/></padding>
+				<Label text="Available 1000 Descriptors" styleClass="bbf-header" /> 
+				<Label text="by Mark Hassman" /> 
+				<Label text="mithrilandmages.com" /> 
+				<ListView fx:id="mDescriptorsList1000" prefHeight="125" />
+				<HBox alignment="CENTER" >
+					<Button fx:id="m1000to1" text="1" onAction="#assign1000to1Action" />
+					<Button fx:id="m1000to2" text="2" onAction="#assign1000to2Action" />
+					<Button fx:id="m1000to3" text="3" onAction="#assign1000to3Action" />
+				</HBox>
+			</VBox>
+			<VBox prefWidth="250" alignment="TOP_CENTER" styleClass="bbf-border" >
+				<padding><javafx.geometry.Insets top="5" right="5" bottom="5" left="5"/></padding>
+				<Label text="Available Decahedron" styleClass="bbf-header" /> 
+				<Label text="Decahedron Issue 1" styleClass="bbf-header" /> 
+				<Label text="dwdstudios.com" /> 
+				<ListView fx:id="mDescriptorsListDeca" prefHeight="125" />
+				<HBox alignment="CENTER" >
+					<Button fx:id="mDecato1" text="1" onAction="#assignDecato1Action" />
+					<Button fx:id="mDecato2" text="2" onAction="#assignDecato2Action" />
+					<Button fx:id="mDecato3" text="3" onAction="#assignDecato3Action" />
+				</HBox>
+			</VBox>
+		</children>
+	</FlowPane>
+</ScrollPane>

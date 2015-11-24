@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.control.cell.*?>
+
+<!--
+/*
+* Licensing
+* This software is licensed under the Creative Commons Attribution-Noncommercial-ShareAlike 3.0 Unported License; (CC BY-NC-SA 3.0); Some Rights Reserved.
+* BareBones Fantasy™ and Keranak Kingdoms™ are copyright 2012, and are trademarks of DwD Studios. 
+* These trademarks are used under the Creative Commons Attribution-Noncommercial-ShareAlike 3.0 Unported License; (CC BY-NC-SA 3.0); Some Rights Reserved.
+* To view a copy of this license, visit: http://creativecommons.org/licenses/by-nc-sa/3.0
+* All data is (CC BY-NC-SA 3.0) and used with permission.
+* Basic game setup, races, and Decahedron Descriptors are from DwDStudios http://dwdstudios.com/ (They also make Covert Ops)
+* Available 1000 Descriptors by Mark Hassman http://mithrilandmages.com (check out his cool NPC/character generators)
+*/
+-->
+<AnchorPane 
+	prefHeight="600" prefWidth="650" 
+	xmlns:fx="http://javafx.com/fxml/1" 
+	fx:controller="org.kuroneko.bbf.BBFControl" 
+	stylesheets="@BBFView.css"  >
+	<children>
+		<FlowPane id="BBFBase" hgap="2" vgap="2" styleClass="bbf-base" prefWidth="650" >
+			<padding>
+				<javafx.geometry.Insets top="0" right="0" bottom="0" left="0"/>
+			</padding>
+			<children>
+				<MenuBar prefWidth="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" >
+					<menus>
+						<Menu mnemonicParsing="false" text="Software">
+							<items>
+								<MenuItem 
+									fx:id="mShowLicense" 
+									mnemonicParsing="false"
+									onAction="#showLicense" 
+									text="Show License (CC BY-NC-SA 3.0)" />
+								<MenuItem 
+									fx:id="mAbout" 
+									mnemonicParsing="false"
+									onAction="#about" 
+									text="About" />
+							</items>
+						</Menu>
+						<Menu mnemonicParsing="false" text="Character">
+							<items>
+								<MenuItem 
+									fx:id="mSaveToPdf" 
+									mnemonicParsing="false"
+									onAction="#saveToPdf" 
+									text="Save to PDF" />
+							</items>
+						</Menu>
+					</menus>
+				</MenuBar>
+
+				<VBox alignment="TOP_CENTER" styleClass="bbf-border" prefWidth="275" >
+					<padding>
+						<javafx.geometry.Insets top="5" right="5" bottom="5" left="5"/>
+					</padding>
+					<Label text="Character Setup" styleClass="bbf-header" /> 
+					<HBox spacing="5">
+						<padding>
+							<javafx.geometry.Insets top="2" right="2" bottom="2" left="2"/>
+						</padding>
+						<Button text="Default"  onAction="#defaultStatsAction" />
+						<Button text="Roll 5D+30"  onAction="#rollStatsAction" />
+					</HBox>
+					<GridPane>
+						<padding>
+							<javafx.geometry.Insets top="2" right="2" bottom="2" left="2"/>
+						</padding>
+						<!-- Strength -->
+						<Label text="Strength (STR)"		GridPane.rowIndex="0" GridPane.columnIndex="0" /> 
+						<ComboBox fx:id="mStrengthBase"		GridPane.rowIndex="0" GridPane.columnIndex="1" onAction="#strAction" prefWidth="65" />
+						<Label text=" + "					GridPane.rowIndex="0" GridPane.columnIndex="2" /> 
+						<Label fx:id="mStrengthBonus"		GridPane.rowIndex="0" GridPane.columnIndex="3" text="--" /> 
+						<Label text=" = "					GridPane.rowIndex="0" GridPane.columnIndex="4" /> 
+						<Label fx:id="mStrengthTotal"		GridPane.rowIndex="0" GridPane.columnIndex="5" text="--" /> 
+						<!-- Dexterity -->
+						<Label text="Dexterity (DEX)"		GridPane.rowIndex="1" GridPane.columnIndex="0" /> 
+						<ComboBox fx:id="mDexterityBase"	GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#dexAction" prefWidth="65" />
+						<Label text=" + "					GridPane.rowIndex="1" GridPane.columnIndex="2" /> 
+						<Label fx:id="mDexterityBonus"		GridPane.rowIndex="1" GridPane.columnIndex="3" text="--" /> 
+						<Label text=" = "					GridPane.rowIndex="1" GridPane.columnIndex="4" /> 
+						<Label fx:id="mDexterityTotal"		GridPane.rowIndex="1" GridPane.columnIndex="5" text="--" /> 
+						<!-- Logic -->
+						<Label text="Logic (LOG)"			GridPane.rowIndex="2" GridPane.columnIndex="0" /> 
+						<ComboBox fx:id="mLogicBase"		GridPane.rowIndex="2" GridPane.columnIndex="1" onAction="#logAction" prefWidth="65" />
+						<Label text=" + "					GridPane.rowIndex="2" GridPane.columnIndex="2" /> 
+						<Label fx:id="mLogicBonus"			GridPane.rowIndex="2" GridPane.columnIndex="3" text="--" /> 
+						<Label text=" = "					GridPane.rowIndex="2" GridPane.columnIndex="4" /> 
+						<Label fx:id="mLogicTotal"			GridPane.rowIndex="2" GridPane.columnIndex="5" text="--" /> 
+						<!-- Willpower -->
+						<Label text="Willpower (WIL)"		GridPane.rowIndex="3" GridPane.columnIndex="0" /> 
+						<ComboBox fx:id="mWillpowerBase"	GridPane.rowIndex="3" GridPane.columnIndex="1" onAction="#wilAction" prefWidth="65" />
+						<Label text=" + "					GridPane.rowIndex="3" GridPane.columnIndex="2" /> 
+						<Label fx:id="mWillpowerBonus"		GridPane.rowIndex="3" GridPane.columnIndex="3" text="--" /> 
+						<Label text=" = "					GridPane.rowIndex="3" GridPane.columnIndex="4" /> 
+						<Label fx:id="mWillpowerTotal"		GridPane.rowIndex="3" GridPane.columnIndex="5" text="--" /> 
+						<!-- Body Points -->
+						<Label text="Body Points (BP)"		GridPane.rowIndex="4" GridPane.columnIndex="0" /> 
+						<Label fx:id="mBodypointBase"		GridPane.rowIndex="4" GridPane.columnIndex="1" text="--" prefWidth="65" />
+						<Label text=" + "					GridPane.rowIndex="4" GridPane.columnIndex="2" /> 
+						<Label fx:id="mBodypointBonus"		GridPane.rowIndex="4" GridPane.columnIndex="3" text="--" /> 
+						<Label text=" = "					GridPane.rowIndex="4" GridPane.columnIndex="4" /> 
+						<Label fx:id="mBodypointTotal"		GridPane.rowIndex="4" GridPane.columnIndex="5" text="--" /> 
+					</GridPane>
+					<VBox alignment="TOP_CENTER">
+						<padding>
+							<javafx.geometry.Insets top="2" right="2" bottom="2" left="2"/>
+						</padding>
+						<Label text="Moral Code" styleClass="bbf-header" /> 
+						<HBox>
+							<ComboBox fx:id="mKindOrCruelDegree"	onAction="#updateMoralCodeToPCAction" />
+							<ComboBox fx:id="mKindOrCruelSelect"	onAction="#updateMoralCodeToPCAction" />
+						</HBox>
+						<HBox>
+							<ComboBox fx:id="mFocusedOrUnfocusedDegree"	onAction="#updateMoralCodeToPCAction" />
+							<ComboBox fx:id="mFocusedOrUnfocusedSelect"	onAction="#updateMoralCodeToPCAction" />
+						</HBox>
+						<HBox>
+							<ComboBox fx:id="mSelflessOrSelfishDegree"	onAction="#updateMoralCodeToPCAction" />
+							<ComboBox fx:id="mSelflessOrSelfishSelect"	onAction="#updateMoralCodeToPCAction" />
+						</HBox>
+						<HBox>
+							<ComboBox fx:id="mHonorableOrDeceitfulDegree"	onAction="#updateMoralCodeToPCAction" />
+							<ComboBox fx:id="mHonorableOrDeceitfulSelect"	onAction="#updateMoralCodeToPCAction" />
+						</HBox>
+						<HBox>
+							<ComboBox fx:id="mBraveOrCowardlyDegree"	onAction="#updateMoralCodeToPCAction" />
+							<ComboBox fx:id="mBraveOrCowardlySelect"	onAction="#updateMoralCodeToPCAction" />
+						</HBox>
+					</VBox>
+					<Button text="Set Descriptors" onAction="#descriptorsAction" styleClass="bbf-header" />
+					<ListView fx:id="mDescriptors" prefHeight="62" prefWidth="100" />
+				</VBox>
+			
+				<VBox alignment="TOP_CENTER" styleClass="bbf-border" prefWidth="370" >
+					<padding>
+						<javafx.geometry.Insets top="5" right="5" bottom="5" left="5"/>
+					</padding>
+					<HBox spacing="5">
+						<padding>
+							<javafx.geometry.Insets top="2" right="2" bottom="2" left="2"/>
+						</padding>
+						<Label text="Race" styleClass="bbf-header" /> 
+						<ComboBox fx:id="mRace"	onAction="#raceAction" />
+					</HBox>
+					<Label text="Skills at Level 1" styleClass="bbf-header" />
+					<HBox alignment="TOP_CENTER" >
+						<ComboBox fx:id="mLevel1SkillA"	onAction="#level1SkillAAction" />
+						<ComboBox fx:id="mLevel1SkillB"	onAction="#level1SkillBAction" />
+						<ComboBox fx:id="mLevel1SkillC"	onAction="#level1SkillCAction" />
+					</HBox>
+					<Label text="Primary Skills" styleClass="bbf-header" />
+					<HBox alignment="TOP_CENTER" >
+						<ComboBox fx:id="mPrimarySkillA"	onAction="#primarySkillAAction" />
+						<ComboBox fx:id="mPrimarySkillB"	onAction="#primarySkillBAction" />
+						<ComboBox fx:id="mPrimarySkillC"	onAction="#primarySkillCAction" />
+					</HBox>
+					<Label text="Secondary Skills" styleClass="bbf-header" />
+					<HBox alignment="TOP_CENTER" >
+						<ComboBox fx:id="mSecondarySkillA"	onAction="#secondarySkillAAction" />
+						<ComboBox fx:id="mSecondarySkillB"	onAction="#secondarySkillBAction" />
+						<ComboBox fx:id="mSecondarySkillC"	onAction="#secondarySkillCAction" />
+					</HBox>
+					<Label text="Languages" styleClass="bbf-header" />
+					<Label fx:id="mKnownLanguages" text="--" /> 
+					<HBox alignment="TOP_CENTER" >
+						<ComboBox fx:id="mLanguageA"	onAction="#languageAAction" />
+						<ComboBox fx:id="mLanguageB"	onAction="#languageBAction" />
+						<ComboBox fx:id="mLanguageC"	onAction="#languageCAction" />
+					</HBox>
+					<TabPane prefWidth="350" >
+						<Tab text="Racial Options" styleClass="bbf-header" >
+							<VBox>
+								<padding>
+									<javafx.geometry.Insets top="5" right="5" bottom="5" left="5"/>
+								</padding>
+								<ListView fx:id="mRacialSelectables" prefHeight="125" prefWidth="100" />
+							</VBox>
+						</Tab>
+						<!-- hardcoding skill/aspects here should be changed to be dynamic -->
+						<Tab text="Cleric" styleClass="bbf-header" >
+							<VBox>
+								<padding>
+									<javafx.geometry.Insets top="5" right="5" bottom="5" left="5"/>
+								</padding>
+								<HBox>
+									<Label text="Selected " styleClass="bbf-header" />
+									<Label fx:id="mClericSelected" text="--" /> 
+									<Label text=" out of " styleClass="bbf-header" />
+									<Label fx:id="mClericSelectable" text="--" /> 
+								</HBox>
+								<ListView fx:id="mClericSelectables" prefHeight="125" prefWidth="100" />
+							</VBox>
+						</Tab>
+						<!-- hardcoding skill/aspects here should be changed to be dynamic -->
+						<Tab text="Spellcaster" styleClass="bbf-header" >
+							<VBox>
+								<padding>
+									<javafx.geometry.Insets top="5" right="5" bottom="5" left="5"/>
+								</padding>
+								<HBox>
+									<Label text="Selected " styleClass="bbf-header" />
+									<Label fx:id="mSpellcasterSelected" text="--" /> 
+									<Label text=" out of " styleClass="bbf-header" />
+									<Label fx:id="mSpellcasterSelectable" text="--" /> 
+								</HBox>
+								<ListView fx:id="mSpellcasterSelectables" prefHeight="125" prefWidth="100" />
+							</VBox>
+						</Tab>
+						<!-- hardcoding skill/aspects here should be changed to be dynamic -->
+						<Tab text="Scholar" styleClass="bbf-header" >
+							<VBox>
+								<padding>
+									<javafx.geometry.Insets top="5" right="5" bottom="5" left="5"/>
+								</padding>
+								<HBox>
+									<Label text="Selected " styleClass="bbf-header" />
+									<Label fx:id="mScholarSelected" text="--" /> 
+									<Label text=" out of " styleClass="bbf-header" />
+									<Label fx:id="mScholarSelectable" text="--" /> 
+								</HBox>
+								<ListView fx:id="mScholarSelectables" prefHeight="125" prefWidth="100" />
+							</VBox>
+						</Tab>
+					</TabPane>
+				</VBox>
+			
+				<VBox alignment="TOP_CENTER" styleClass="bbf-border" prefWidth="650" >
+					<padding>
+						<javafx.geometry.Insets top="5" right="5" bottom="5" left="5"/>
+					</padding>
+					<TabPane >
+						<Tab text="Character Skill Scores" styleClass="bbf-header" >
+							<TableView fx:id="mAspectTable" prefHeight="200" >
+								<columns>
+									<TableColumn text="Skill" prefWidth="100" >
+										<cellValueFactory>
+											<PropertyValueFactory property="mSkillName" />
+										</cellValueFactory>
+									</TableColumn>
+									<TableColumn text="Aspect" >
+										<cellValueFactory>
+											<PropertyValueFactory property="mAspectName" />
+										</cellValueFactory>
+									</TableColumn>
+									<TableColumn text="Score" style="-fx-alignment: CENTER;" >
+										<cellValueFactory>
+											<PropertyValueFactory property="mScore" />
+										</cellValueFactory>
+									</TableColumn>
+									<TableColumn text="Level" style="-fx-alignment: CENTER;" >
+										<cellValueFactory>
+											<PropertyValueFactory property="mLevel" />
+										</cellValueFactory>
+									</TableColumn>
+									<TableColumn text="Mod" style="-fx-alignment: CENTER;" >
+										<cellValueFactory>
+											<PropertyValueFactory property="mModifier" />
+										</cellValueFactory>
+									</TableColumn>
+									<TableColumn text="P(20)" style="-fx-alignment: CENTER;" >
+										<cellValueFactory>
+											<PropertyValueFactory property="mPrimary" />
+										</cellValueFactory>
+									</TableColumn>
+									<TableColumn text="S(10)" style="-fx-alignment: CENTER;" >
+										<cellValueFactory>
+											<PropertyValueFactory property="mSecondary" />
+										</cellValueFactory>
+									</TableColumn>
+									<TableColumn text="Description" style="-fx-alignment: CENTER;" >
+										<cellValueFactory>
+											<PropertyValueFactory property="mDescription" />
+										</cellValueFactory>
+									</TableColumn>
+								</columns>
+							</TableView>
+						</Tab>
+						<Tab text="Available Races" styleClass="bbf-header" >
+							<ListView fx:id="mRaceAvailView" prefHeight="100" />
+						</Tab>
+						<Tab text="Other Scores" styleClass="bbf-header" >
+							<Label text="Ability Check Scores and Modifications" styleClass="bbf-header" /> 
+							<TableView fx:id="mAbilityCheckTable" prefHeight="100" >
+								<columns>
+									<TableColumn text="Ability" >
+										<cellValueFactory>
+											<PropertyValueFactory property="mAbility" />
+										</cellValueFactory>
+									</TableColumn>
+									<TableColumn text="Check" prefWidth="100" >
+										<cellValueFactory>
+											<PropertyValueFactory property="mDescription" />
+										</cellValueFactory>
+									</TableColumn>
+									<TableColumn text="Value" style="-fx-alignment: CENTER;" >
+										<cellValueFactory>
+											<PropertyValueFactory property="mValue" />
+										</cellValueFactory>
+									</TableColumn>
+								</columns>
+							</TableView>
+						</Tab>
+					</TabPane>
+				</VBox>
+			
+			</children>
+		</FlowPane>
+	</children>
+</AnchorPane>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*
+* Licensing
+* This software is licensed under the Creative Commons Attribution-Noncommercial-ShareAlike 3.0 Unported License; (CC BY-NC-SA 3.0); Some Rights Reserved.
+* BareBones Fantasy™ and Keranak Kingdoms™ are copyright 2012, and are trademarks of DwD Studios. 
+* These trademarks are used under the Creative Commons Attribution-Noncommercial-ShareAlike 3.0 Unported License; (CC BY-NC-SA 3.0); Some Rights Reserved.
+* To view a copy of this license, visit: http://creativecommons.org/licenses/by-nc-sa/3.0
+* All data is (CC BY-NC-SA 3.0) and used with permission.
+* Basic game setup, races, and Decahedron Descriptors are from DwDStudios http://dwdstudios.com/ (They also make Covert Ops)
+* Available 1000 Descriptors by Mark Hassman http://mithrilandmages.com (check out his cool NPC/character generators)
+*/
+-->
+<SkillFactory>
+    <SkillList>
+		<Skill mName="Artificer" >
+			<ScoreList>
+				<Score mName="Artificer" mBaseAbility="LOG" mMultiplier="0.5" mPercPerLevel="10" >
+					<AspectList>
+						<Aspect mName="Build/Repair Contraption" mSkilledRequired="true" ></Aspect>
+						<Aspect mName="Identify/Alter Device" mSkilledRequired="true" ></Aspect>
+						<Aspect mName="Jury Rig" mSkilledRequired="true" ></Aspect>
+						<Aspect mName="Technobable" mSkilledRequired="true" ></Aspect>
+					</AspectList>
+				</Score>
+			</ScoreList>
+		</Skill>
+		<Skill mName="Cleric" >
+			<ScoreList>
+				<Score mName="Cleric" mBaseAbility="WIL" mMultiplier="0.5" mPercPerLevel="10" >
+					<AspectList>
+						<Aspect mName="Blessings" mSkilledRequired="true" ></Aspect>
+						<Aspect mName="Dectect Aura" mSkilledRequired="true" ></Aspect>
+						<Aspect mName="Miracles" mSelectPerLevel="1" mSkilledRequired="true" >
+							<SelectPerLevelList>
+								<entry>aid</entry>
+								<entry>cleanse</entry>
+								<entry>dispel</entry>
+								<entry>heal</entry>
+								<entry>protection</entry>
+								<entry>repel</entry>
+							</SelectPerLevelList>
+						</Aspect>
+						<Aspect mName="Smite" mSpecialFlag="FavoredWeaponSkill" mSkilledRequired="true" ></Aspect>
+					</AspectList>
+				</Score>
+			</ScoreList>
+		</Skill>
+		<Skill mName="Enchanter" >
+			<ScoreList>
+				<Score mName="Enchanter" mBaseAbility="LOG" mMultiplier="0.5" mPercPerLevel="10" >
+					<AspectList>
+						<Aspect mName="Alchemy" mSkilledRequired="true" ></Aspect>
+						<Aspect mName="Enchantment" mSkilledRequired="true" ></Aspect>
+						<Aspect mName="Familiar" mSkilledRequired="true" ></Aspect>
+						<Aspect mName="Runecraft" mSkilledRequired="true" ></Aspect>
+					</AspectList>
+				</Score>
+			</ScoreList>
+		</Skill>
+		<Skill mName="Leader" >
+			<ScoreList>
+				<Score mName="Leader" mBaseAbility="WIL" mMultiplier="0.5" mPercPerLevel="10" >
+					<AspectList>
+						<Aspect mName="Battle Commander" mSkilledRequired="true" ></Aspect>
+						<Aspect mName="Guardian" mSkilledRequired="true" ></Aspect>
+						<Aspect mName="Leader" mSkilledRequired="true" ></Aspect>
+						<Aspect mName="Warlord" mSkilledRequired="true" ></Aspect>
+					</AspectList>
+				</Score>
+			</ScoreList>
+		</Skill>
+		<Skill mName="Scholar">
+			<ScoreList>
+				<Score mName="Scholar" mBaseAbility="LOG" mMultiplier="0.5" mPercPerLevel="10" >
+					<AspectList>
+						<Aspect mName="Diplomat" mPerLevel="5" mSkilledRequired="true" ></Aspect>
+						<Aspect mName="High Scholar" mSelectPerLevelList="1" mEvenOnly="true" mBonus="10" mSkilledRequired="true" >
+							<SelectPerLevelList>
+								<entry>jewelry</entry>
+								<entry>trader</entry>
+								<entry>librarian</entry>
+								<entry>fortune teller</entry>
+								<entry>historian</entry>
+								<entry>heraldry</entry>
+								<entry>administrator</entry>
+							</SelectPerLevelList>
+						</Aspect>
+						<Aspect mName="Historian" mSkilledRequired="true" ></Aspect>
+						<Aspect mName="Signs and Portents" mSkilledRequired="true" ></Aspect>
+					</AspectList>
+				</Score>
+			</ScoreList>
+		</Skill>
+		<Skill mName="Scout" >
+			<ScoreList>
+				<Score mName="Scout" mBaseAbility="LOG" mMultiplier="0.5" mPercPerLevel="10" >
+					<AspectList>
+						<Aspect mName="Animal Handling" mSkilledRequired="false" ></Aspect>
+						<Aspect mName="Navigation" mSkilledRequired="false" ></Aspect>
+						<Aspect mName="Survival" mSkilledRequired="false" ></Aspect>
+						<Aspect mName="Tracking" mSkilledRequired="false" ></Aspect>
+					</AspectList>
+				</Score>
+			</ScoreList>
+		</Skill>
+		<Skill mName="Spellcaster" >
+			<ScoreList>
+				<Score mName="Spellcaster" mBaseAbility="LOG" mMultiplier="0.5" mPercPerLevel="10" >
+					<AspectList>
+						<Aspect mName="High Wizardry" mSelectPerLevel="1" mPrimaryPerLevel="2" mSkilledRequired="true" >
+							<SelectPerLevelList>
+								<entry>Aid</entry>
+								<entry>Charm</entry>
+								<entry>Cleanse</entry>
+								<entry>Control Weather</entry>
+								<entry>Dispel</entry>
+								<entry>Divination</entry>
+								<entry>Entangle</entry>
+								<entry>Heal</entry>
+								<entry>Hinder</entry>
+								<entry>Illusion</entry>
+								<entry>Offensive Strike</entry>
+								<entry>Protection</entry>
+								<entry>Repel</entry>
+								<entry>Summon</entry>
+								<entry>Telekinesis</entry>
+								<entry>Transform</entry>
+								<entry>Transport</entry>
+							</SelectPerLevelList>
+						</Aspect>
+						<Aspect mName="Low Wizardry" mSkilledRequired="true" ></Aspect>
+						<Aspect mName="Wizard Eye" mSkilledRequired="true" ></Aspect>
+						<Aspect mName="Wizard Hand" mSkilledRequired="true" ></Aspect>
+					</AspectList>
+				</Score>
+			</ScoreList>
+		</Skill>
+		<Skill mName="Thief" >
+			<ScoreList>
+				<Score mName="Thief" mBaseAbility="DEX" mMultiplier="0.5" mPercPerLevel="10" >
+					<AspectList>
+						<Aspect mName="Deception" mSkilledRequired="false" ></Aspect>
+						<Aspect mName="Security Systems" mSkilledRequired="false" ></Aspect>
+						<Aspect mName="Sleight of Hand" mSkilledRequired="false" ></Aspect>
+						<Aspect mName="Stealth" mSkilledRequired="false" ></Aspect>
+					</AspectList>
+				</Score>
+			</ScoreList>
+		</Skill>
+		<Skill mName="Warrior" >
+			<ScoreList>
+				<Score mName="Melee" mBaseAbility="STR" mMultiplier="0.5" mPercPerLevel="10" >
+					<AspectList>
+						<Aspect mName="Melee weapons" mSkilledRequired="false" ></Aspect>
+						<Aspect mName="Unarmed combat" mSkilledRequired="false" ></Aspect>
+					</AspectList>
+				</Score>
+				<Score mName="Ranged" mBaseAbility="DEX" mMultiplier="0.5" mPercPerLevel="10" >
+					<AspectList>
+						<Aspect mName="Marksman" mSkilledRequired="false" ></Aspect>
+						<Aspect mName="Thrown weapons" mSkilledRequired="false" ></Aspect>
+					</AspectList>
+				</Score>
+			</ScoreList>
+		</Skill>
+    </SkillList>
+</SkillFactory>

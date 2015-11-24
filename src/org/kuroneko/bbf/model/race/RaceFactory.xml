@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*
+* Licensing
+* This software is licensed under the Creative Commons Attribution-Noncommercial-ShareAlike 3.0 Unported License; (CC BY-NC-SA 3.0); Some Rights Reserved.
+* BareBones Fantasy™ and Keranak Kingdoms™ are copyright 2012, and are trademarks of DwD Studios. 
+* These trademarks are used under the Creative Commons Attribution-Noncommercial-ShareAlike 3.0 Unported License; (CC BY-NC-SA 3.0); Some Rights Reserved.
+* To view a copy of this license, visit: http://creativecommons.org/licenses/by-nc-sa/3.0
+* All data is (CC BY-NC-SA 3.0) and used with permission.
+* Basic game setup, races, and Decahedron Descriptors are from DwDStudios http://dwdstudios.com/ (They also make Covert Ops)
+* Available 1000 Descriptors by Mark Hassman http://mithrilandmages.com (check out his cool NPC/character generators)
+*/
+-->
+<RaceFactory>
+    <RaceList>
+		<Race mName="Bugbear" mMove="8" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Goblin</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>STR</key><value>5</value></entry>
+				<entry><key>DEX</key><value>5</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>WIL_SOCIALCIV</key><value>-10</value></entry>
+			</AbilityChecksList>
+			<SkillChecksList>
+				<entry><key>Thief:Stealth</key><value>10</value></entry>
+			</SkillChecksList>
+			<RacialCharList>
+				<entry><key>Infravision</key><value>12 spaces, sight using heat signatures in the infra-red spectrum when light is not present</value></entry>
+				<entry><key>Illiterate</key><value>Illiterate by default</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Changeling" mMove="8" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" mLanguagePick="2" mNativeLanguageCostMod="-1" >
+			<LanguageList>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<SkillChecksList>
+				<entry><key>Thief:Deception</key><value>20</value></entry>
+				<entry><key>Scholar:Diplomat</key><value>20</value></entry>
+			</SkillChecksList>
+			<SkillsAsUnskilled>
+				<entry>Scholar:Diplomat</entry>
+			</SkillsAsUnskilled>
+			<RacialCharList>
+				<entry><key>Mimic</key><value>may appear to be a member of any humanoid race and of any gender. This may be used to copy specific individuals. In some cases the GM may allow a WIL check to see though the deception.</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Dragon-kin" mMove="8" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Draconic</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>STR</key><value>10</value></entry>
+			</AbilityBonusList>
+			<SpecialList>
+				<Special mType="RacialAbility">
+					<Options>
+						<entry><key>Armored Hide</key><value>4</value></entry>
+						<entry><key>Wings</key><value>10</value></entry>
+					</Options>
+				</Special>
+				<Special mType="Weapon" mName="Bite" mDice="1D+1" mSkill="Warrior: Melee" />
+				<Special mType="Weapon" mName="Claw" mDice="1D" mSkill="Warrior: Melee" />
+				<Special mType="Effect" mName="Breath" mDescription="usage 1/encounter, range 0 (line 4) resist DEX, effect 3D fire damage" />
+				<Special mType="Effect" mName="Tail slap" mDescription="resist DEX (prone), effect 1D damage and knocked prone" />
+			</SpecialList>
+		</Race>
+		<Race mName="Dwarf" mMove="6" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" mBPMod="5" >
+			<LanguageList>
+				<Language>Dwarfish</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>STR</key><value>10</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>STR_POISON</key><value>10</value></entry>
+				<entry><key>WIL_MAGIC</key><value>10</value></entry>
+				<entry><key>DEX_MAGIC</key><value>10</value></entry>
+				<entry><key>LOG_MAGIC</key><value>10</value></entry>
+				<entry><key>STR_MAGIC</key><value>10</value></entry>
+			</AbilityChecksList>
+			<RacialCharList>
+				<entry><key>Infravision</key><value>12 spaces, sight using heat signatures in the infra-red spectrum when light is not present</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Elf" mMove="9" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Elven</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>LOG</key><value>10</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>WIL_CHARMSPELLS</key><value>10</value></entry>
+			</AbilityChecksList>
+			<SpecialList>
+				<Special mType="Spellcaster (any armor, any STR)" />
+			</SpecialList>
+			<RacialCharList>
+				<entry><key>Darkvision</key><value>12 spaces, allows normal sight in low-light, as long as a single star is present in the sky</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Elf (Dark)" mMove="9" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Elven</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>DEX</key><value>10</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>WIL_TARGETEDMAGIC</key><value>10</value></entry>
+			</AbilityChecksList>
+			<SkillsAsUnskilled>
+				<entry>Spellcaster:Low Wizardry</entry>
+			</SkillsAsUnskilled>
+			<SpecialList>
+				<Special mType="Spellcaster (chain or lighter, any STR)" />
+				<Special mType="Disadvantage" mCause="Bright Light" mCondition="Fatigue" />
+			</SpecialList>
+			<RacialCharList>
+				<entry><key>Infravision</key><value>12 spaces, sight using heat signatures in the infra-red spectrum when light is not present</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Elf (High)" mMove="9" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Elven</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>LOG</key><value>10</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>WIL_CHARMSPELLS</key><value>10</value></entry>
+			</AbilityChecksList>
+			<SpecialList>
+				<Special mType="Spellcaster (any armor, any STR)" />
+			</SpecialList>
+			<RacialCharList>
+				<entry><key>Darkvision</key><value>12 spaces, allows normal sight in low-light, as long as a single star is present in the sky</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Elf (Wood)" mMove="9" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Elven</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>DEX</key><value>10</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>DEX_CLIMBTREE</key><value>20</value></entry>
+				<entry><key>STR_CLIMBTREE</key><value>20</value></entry>
+				<entry><key>WIL_CHARMSPELLS</key><value>10</value></entry>
+			</AbilityChecksList>
+			<SpecialList>
+				<Special mType="WeaponBonus" mWeapon="Longbow" mToHit="10" />
+				<Special mType="WeaponBonus" mWeapon="Longsword" mToHit="10" />
+			</SpecialList>
+			<RacialCharList>
+				<entry><key>Darkvision</key><value>12 spaces, allows normal sight in low-light, as long as a single star is present in the sky</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Gnoll" mMove="8" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Gnoll</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>STR</key><value>10</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>WIL_SOCIALCIV</key><value>-10</value></entry>
+			</AbilityChecksList>
+			<SkillChecksList>
+				<entry><key>Scout:Survival</key><value>10</value></entry>
+				<entry><key>Scout:Tracking</key><value>10</value></entry>
+			</SkillChecksList>
+			<SpecialList>
+				<Special mType="WeaponBonus" mWeapon="Favored" mToHit="10" />
+			</SpecialList>
+			<RacialCharList>
+				<entry><key>Illiterate</key><value>Illiterate by default</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Gnome" mMove="6" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Gnomish</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>LOG</key><value>10</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>LOG_BUILDNEW</key><value>10</value></entry>
+			</AbilityChecksList>
+			<SkillChecksList>
+				<entry><key>Artificer</key><value>10</value></entry>
+			</SkillChecksList>
+			<SpecialList>
+				<Special mType="TargetCheck" mCheck="Illusion" mMod="-10" />
+			</SpecialList>
+			<RacialCharList>
+				<entry><key>Scout:Animal Handling:Small Animals</key><value>+10</value></entry>
+				<entry><key>Crafter</key><value>+10 to one mundane craft skill; cobbler, jeweler, tailor, cook, or other crafts allowed by the GM</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Goblin" mMove="6" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Goblin</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>DEX</key><value>10</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>WIL_SOCIALCIV</key><value>-10</value></entry>
+			</AbilityChecksList>
+			<SkillChecksList>
+				<entry><key>Thief:Stealth</key><value>10</value></entry>
+			</SkillChecksList>
+			<RacialCharList>
+				<entry><key>Scout:Survival:Underground</key><value>+10</value></entry>
+				<entry><key>Illiterate</key><value>Illiterate by default</value></entry>
+				<entry><key>Infravision</key><value>12 spaces, sight using heat signatures in the infra-red spectrum when light is not present</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Halfling" mMove="7" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Halfling</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>DEX</key><value>10</value></entry>
+			</AbilityBonusList>
+			<SkillChecksList>
+				<entry><key>Thief:Stealth</key><value>10</value></entry>
+			</SkillChecksList>
+			<RacialCharList>
+				<entry><key>Luck</key><value>each encounter, re-roll one failed check</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Half-Giant" mMove="11" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" mEquipCostMod="2.0" >
+			<LanguageList>
+				<Language>Giant</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>STR</key><value>15</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>STR_ALL</key><value>-10</value></entry>
+				<entry><key>WIL_SOCIALSMALLER</key><value>-10</value></entry>
+				<entry><key>WIL_INTIMIDATE</key><value>10</value></entry>
+			</AbilityChecksList>
+			<SpecialList>
+				<Special mType="Disadvantage" mAbility="DEX" mMulti="0.5" />
+			</SpecialList>
+		</Race>
+		<Race mName="Hobgoblin" mMove="8" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Goblin</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>STR</key><value>10</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>WIL_SOCIALCIV</key><value>-10</value></entry>
+			</AbilityChecksList>
+			<SpecialList>
+				<Special mType="Required Armor Str" mMod="-5" />
+				<Special mType="Required Weapon Str" mMod="-5" />
+			</SpecialList>
+			<RacialCharList>
+				<entry><key>Infravision</key><value>12 spaces, sight using heat signatures in the infra-red spectrum when light is not present</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Human" mMove="8" mDescriptors="3" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Anglish</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>WIL</key><value>10</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>STR_ALL</key><value>10</value></entry>
+				<entry><key>DEX_ALL</key><value>10</value></entry>
+				<entry><key>LOG_ALL</key><value>10</value></entry>
+				<entry><key>WIL_ALL</key><value>10</value></entry>
+			</AbilityChecksList>
+		</Race>
+		<Race mName="Kobold" mMove="6" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Draconic</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>DEX</key><value>10</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>WIL_SOCIALCIV</key><value>-10</value></entry>
+				<entry><key>DEX_CLIMB</key><value>-10</value></entry>
+				<entry><key>STR_CLIMB</key><value>-10</value></entry>
+			</AbilityChecksList>
+			<SkillChecksList>
+				<entry><key>Thief:Stealth</key><value>10</value></entry>
+				<entry><key>Thief:Security Systems</key><value>10</value></entry>
+			</SkillChecksList>
+			<RacialCharList>
+				<entry><key>Infravision</key><value>12 spaces, sight using heat signatures in the infra-red spectrum when light is not present</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Lilithii" mMove="8" mDescriptors="2" mSkillOneCount="2" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Lilithii</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<SpecialList>
+				<Special mType="Fly" mMod="24" mDescription="Open terrain. Armor awkward. Studded leather or lighter." />
+			</SpecialList>
+		</Race>
+		<Race mName="Lizard-Kin" mMove="8" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Lizard-Kin</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityChecksList>
+				<entry><key>WIL_SOCIALCIV</key><value>-10</value></entry>
+				<entry><key>DEX_SWIM</key><value>-10</value></entry>
+				<entry><key>STR_SWIM</key><value>-10</value></entry>
+			</AbilityChecksList>
+			<SpecialList>
+				<Special mType="Ability">
+					<Options>
+						<entry><key>STR</key><value>10</value></entry>
+						<entry><key>DEX</key><value>10</value></entry>
+					</Options>
+				</Special>
+				<Special mType="Weapon" mName="Bite" mDice="1D+1" mSkill="Warrior: Melee" />
+				<Special mType="Weapon" mName="Claw" mDice="1D" mSkill="Warrior: Melee" />
+				<Special mType="Armor" mName="Natural Armor" mMod="2" mStack="false" />
+				<Special mType="Swim" mMod="8" />
+			</SpecialList>
+			<RacialCharList>
+				<entry><key>Illiterate</key><value>Illiterate by default</value></entry>
+				<entry><key>Aquatic</key><value>can hold breath for 20 minutes</value></entry>
+				<entry><key>Slow metabolism</key><value>survive twice as long as humans without water or food</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Living Construct" mMove="7" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" mLanguagePick="1" >
+			<LanguageList>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<SpecialList>
+				<Special mType="Weapon" mName="Unarmed" mDice="1D+1" mSkill="Warrior: Melee" />
+				<Special mType="Armor" mName="Armored Body" mMod="5" mStack="false" mWearOther="false" mUpgrade="2" />
+				<Special mType="Immune" mName="Fatigue" />
+				<Special mType="Immune" mName="Disease" />
+				<Special mType="Immune" mName="Poison" />
+			</SpecialList>
+			<RacialCharList>
+				<entry><key>Living Construct</key><value>need not eat, drink, sleep or breathe and are immune to fatigue, disease and poison</value></entry>
+				<entry><key>Repair</key><value>do not heal naturally, but may be repaired. Repairs require time, materials, and access to tools and accessories. Magical healing works normally</value></entry>
+				<entry><key>Armored Body</key><value>DR 5, may not wear armor, but may upgrade their natural armor. Typically this requires an enchanter or artificer. Simple armor upgrades cost double. Must have adequate STR. To upgrade to DR 6, equivalent to scale mail, would cost 250gp and would require a 70 STR</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Mantis Men" mMove="7" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="0" mSecondaryCount="1" mPrimarySkill="Warrior" >
+			<LanguageList>
+				<Language>Mantid</Language>
+			</LanguageList>
+			<AbilityChecksList>
+				<entry><key>DEX_CLIMB</key><value>-10</value></entry>
+				<entry><key>STR_CLIMB</key><value>-10</value></entry>
+			</AbilityChecksList>
+			<SpecialList>
+				<Special mType="Weapon" mName="Bite" mDice="1D+1" mSkill="Warrior: Melee" />
+				<Special mType="Weapon" mName="Claw" mDice="1D" mSkill="Warrior: Melee" />
+				<Special mType="Armor" mName="Natural Armor" mMod="2" mStack="false" />
+				<Special mType="Leap" mMulti="0.1" />
+				<Special mType="Move" mMod="10" mDescription="Four legs" />
+			</SpecialList>
+			<RacialCharList>
+				<entry><key>Illiterate</key><value>Illiterate by default</value></entry>
+				<entry><key>Multi-limbed</key><value>six limbs allow the center-set to be used as an extra set of hands, or legs. They still suffer multi-action penalties as normal</value></entry>
+				<entry><key>Speak</key><value>mantid only, however mantis men understand tradespeak. By default mantis men are illiterate.</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Ogre" mMove="10" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" mEquipCostMod="2.0" >
+			<LanguageList>
+				<Language>Giant</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>STR</key><value>10</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>WIL_SOCIALCIV</key><value>-10</value></entry>
+			</AbilityChecksList>
+			<SkillChecksList>
+				<entry><key>Warrior:Marksman</key><value>-10</value></entry>
+				<entry><key>Warrior:Thrown weapons</key><value>-10</value></entry>
+			</SkillChecksList>
+			<SpecialList>
+				<Special mType="Immune" mName="Poison" />
+			</SpecialList>
+			<RacialCharList>
+				<entry><key>Iron Stomach</key><value>immune to ingested poisons. May eat anything organic, no matter how rotten or spoiled</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Orc" mMove="7" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Orcish</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>STR</key><value>10</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>WIL_SOCIALCIV</key><value>-10</value></entry>
+			</AbilityChecksList>
+			<SkillChecksList>
+				<entry><key>Warrior:Melee weapons</key><value>10</value></entry>
+				<entry><key>Warrior:Unarmed combat</key><value>10</value></entry>
+			</SkillChecksList>
+			<RacialCharList>
+				<entry><key>Infravision</key><value>12 spaces, sight using heat signatures in the infra-red spectrum when light is not present</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Sprite" mMove="4" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" mWeaponDamageMulti="0.5" >
+			<LanguageList>
+				<Language>Elvish</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>STR</key><value>-20</value></entry>
+				<entry><key>DEX</key><value>10</value></entry>
+			</AbilityBonusList>
+			<AbilityChecksList>
+				<entry><key>STR_ALL</key><value>20</value></entry>
+			</AbilityChecksList>
+			<SkillChecksList>
+				<entry><key>Thief:Stealth</key><value>50</value></entry>
+			</SkillChecksList>
+			<SkillAtLevel>
+				<entry><key>Spellcaster</key><value>1</value></entry>
+			</SkillAtLevel>
+			<SpecialList>
+				<Special mType="Fly" mMod="12" />
+				<Special mType="Invisible to Mortals" mMod="-50" />
+			</SpecialList>
+			<RacialCharList>
+				<entry><key>Invisibility to Mortals</key><value>+50 to checks involving stealth. Mortals attempting to spot the sprite do so at -50%. Once spotted by a mortal the sprite becomes visible to all and may not become invisible again while being watched. A sprite is automatically spotted by anyone she attacks</value></entry>
+				<entry><key>Small</key><value>sprite weapons cause half damage. Sprite enchanters can still make magical armors, but it is the magic, and not the armor itself, providing protection</value></entry>
+				<entry><key>Magically</key><value>begin with Spellcaster Level 1. This need not be your primary or secondary skill</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Tigerfolk" mMove="9" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Tigerian</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityChecksList>
+				<entry><key>DEX_CLIMB</key><value>10</value></entry>
+				<entry><key>STR_CLIMB</key><value>10</value></entry>
+			</AbilityChecksList>
+			<SkillChecksList>
+				<entry><key>Thief:Stealth</key><value>10</value></entry>
+			</SkillChecksList>
+			<SpecialList>
+				<Special mType="Ability">
+					<Options>
+						<entry><key>STR</key><value>10</value></entry>
+						<entry><key>DEX</key><value>10</value></entry>
+						<entry><key>LOG</key><value>10</value></entry>
+					</Options>
+				</Special>
+				<Special mType="Weapon" mName="Bite" mDice="1D+1" mSkill="Warrior: Melee" />
+				<Special mType="Weapon" mName="Claw" mDice="1D+1" mSkill="Warrior: Melee" />
+				<Special mType="Leap" mMulti="0.1" />
+				<Special mType="Leap (flat footed)" mMulti="0.05" />
+			</SpecialList>
+			<RacialCharList>
+				<entry><key>Leap</key><value>STR/10 spaces with a running start, half the distance flat-footed</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Werefolk" mMove="8" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" >
+			<LanguageList>
+				<Language>Anglish</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<SkillChecksList>
+				<entry><key>Scout:Tracking</key><value>10</value></entry>
+			</SkillChecksList>
+			<SpecialList>
+				<Special mType="Shift">
+					<Options>
+						<entry><key>STR</key><value>10</value></entry>
+						<entry><key>DEX</key><value>10</value></entry>
+						<entry><key>Move</key><value>1</value></entry>
+					</Options>
+				</Special>
+				<Special mType="Weapon" mName="Shift Bite" mDice="1D+1" mSkill="Warrior: Melee" />
+				<Special mType="Weapon" mName="Shift Claw" mDice="1D+1" mSkill="Warrior: Melee" />
+			</SpecialList>
+			<RacialCharList>
+				<entry><key>Shift</key><value>+10 to STR, DEX, and +1 to MOV while shifting. Shifting lasts one encounter. Afterward the werefolk is fatigued until he has had a short 30 minutes rest. A werefolk may not shift while fatigued</value></entry>
+				<entry><key>Bite</key><value>1D+1 damage, while in shift form, use Warrior melee score</value></entry>
+				<entry><key>Claw</key><value>1D+1 damage, while in shift form, use Warrior melee score</value></entry>
+			</RacialCharList>
+		</Race>
+		<Race mName="Hriffani Nomads" mMove="10" mDescriptors="2" mSkillOneCount="1" mPrimaryCount="1" mSecondaryCount="1" mProhibitedSkill="Cleric" >
+			<LanguageList>
+				<Language>Hriffani</Language>
+				<Language>Tradespeak</Language>
+			</LanguageList>
+			<AbilityBonusList>
+				<entry><key>DEX</key><value>10</value></entry>
+			</AbilityBonusList>
+			<SpecialList>
+				<Special mType="Skills">
+					<Options>
+						<entry><key>Thief</key><value>10</value></entry>
+						<entry><key>Spellcaster</key><value>10</value></entry>
+					</Options>
+				</Special>
+				<Special mType="Move Desert Sand" mMod="12" />
+			</SpecialList>
+			<RacialCharList>
+				<entry><key>Choose one of the following</key><value>+10 Thief skills (masters of stealth) | +10 Spellcasting (magic in the blood)</value></entry>
+			</RacialCharList>
+		</Race>
+	</RaceList>
+</RaceFactory>
