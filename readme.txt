@@ -17,9 +17,15 @@ Within the directory containing both Jar files, type the command below, which wi
 
 java -cp "BBFCharGen.jar;pdfbox-app-1.8.10.jar" org.kuroneko.bbf.BBFCharGen
 
+If you are on Linux running OpenJDK, then install the openjfx package.
+
 ----------------------------------------
 ---- Change History
 ----------------------------------------
+
+BBFCharGen 2018-03-18-1118
+
+Update to project files only (for building under OpenJDK) and attempting a release of the JAR files.
 
 BBFCharGen 2015-10-03-1730
 
